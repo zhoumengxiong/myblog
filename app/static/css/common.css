@@ -50,13 +50,13 @@ body {
     float: right;
 }
 .footer {
-	background: #474E5D;
+	background: #f3f3f3;
 	padding: 15px 0 5px;
 	font-size: 13px;
 }
 .footer-content {
     text-align: center;
-    color: #8a6d3b;
+    color: #393f4c;
 }
 div.pagination {
     width: 100%;
