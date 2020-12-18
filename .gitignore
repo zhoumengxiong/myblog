@@ -112,3 +112,4 @@ uploads/*
 !uploads/.gitkeep
 .vscode/
 migrations/*
+data.sqlite
