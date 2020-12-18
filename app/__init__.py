@@ -8,6 +8,7 @@ from flask_migrate import Migrate
 import click
 import os
 from config import config
+from flask_ckeditor import CKEditor
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
@@ -17,6 +18,7 @@ login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 csrf = CSRFProtect()
 migrate = Migrate()
+ckeditor = CKEditor()
 
 
 def create_app(config_name=None):
@@ -32,6 +34,7 @@ def create_app(config_name=None):
     migrate.init_app(app, db)
     register_commands(app)
     register_shell_template_context(app)
+    ckeditor.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

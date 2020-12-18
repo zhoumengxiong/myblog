@@ -4,6 +4,7 @@ from wtforms import SelectField, StringField, TextAreaField, SubmitField, \
     PasswordField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from ..main.forms import CommentForm
+from flask_ckeditor import CKEditorField
 
 
 class CommonForm(FlaskForm):
@@ -13,8 +14,9 @@ class CommonForm(FlaskForm):
 
 class SubmitArticlesForm(CommonForm):
     title = StringField(u'标题', validators=[DataRequired(), Length(1, 64)])
-    content = TextAreaField(u'博文内容', validators=[DataRequired()])
+    content = CKEditorField(u'博文内容', validators=[DataRequired()])
     summary = TextAreaField(u'博文摘要', validators=[DataRequired()])
+    submit = SubmitField(u'提交')
 
 
 class ManageArticlesForm(CommonForm):
@@ -42,6 +44,8 @@ class AddArticleTypeForm(FlaskForm):
     introduction = TextAreaField(u'分类介绍')
     setting_hide = SelectField(u'属性', coerce=int, validators=[DataRequired()])
     menus = SelectField(u'所属导航', coerce=int, validators=[DataRequired()])
+
+
 # You must add coerce=int, or the SelectFile validate function only validate the int data
 
 
@@ -70,7 +74,7 @@ class CustomBlogInfoForm(FlaskForm):
 class AddBlogPluginForm(FlaskForm):
     title = StringField(u'插件名称', validators=[DataRequired()])
     note = TextAreaField(u'备注')
-    content = TextAreaField(u'内容', validators=[DataRequired()])
+    content = CKEditorField(u'内容', validators=[DataRequired()])
 
 
 class ChangePasswordForm(FlaskForm):
