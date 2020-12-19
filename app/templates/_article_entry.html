@@ -2,7 +2,7 @@
     <div id='article-entry' class="entry-box">
         {% include '_article_info.html' %}
         <p>
-            {{ article.content|striptags|truncate }}
+            {{ article.content|safe|striptags|truncate }}
             <small><a href="{{ url_for('.articleDetails', id=article.id) }}">阅读全文</a></small>
         </p>
     </div>
