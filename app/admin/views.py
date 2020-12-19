@@ -40,13 +40,14 @@ def submitArticles():
         source_id = form.source.data
         content = form.content.data
         type_id = form.types.data
-        summary = form.summary.data
+        # summary = form.summary.data
 
         source = Source.query.get(source_id)
         articleType = ArticleType.query.get(type_id)
 
         if source and articleType:
-            article = Article(title=title, content=content, summary=summary,
+            article = Article(title=title, content=content,
+                              # summary=summary,
                               source=source, articleType=articleType)
             db.session.add(article)
             db.session.commit()
