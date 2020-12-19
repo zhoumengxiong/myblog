@@ -79,7 +79,7 @@ def editArticles(id):
 
         article.title = form.title.data
         article.content = form.content.data
-        article.summary = form.summary.data
+        # article.summary = form.summary.data
         article.update_time = datetime.utcnow()
         db.session.add(article)
         db.session.commit()
@@ -89,7 +89,7 @@ def editArticles(id):
     form.title.data = article.title
     form.content.data = article.content
     form.types.data = article.articleType_id
-    form.summary.data = article.summary
+    # form.summary.data = article.summary
     return render_template('admin/submit_articles.html', form=form)
 
 
