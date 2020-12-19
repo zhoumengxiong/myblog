@@ -301,7 +301,7 @@ class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64), unique=True)
     content = db.Column(db.Text)
-    summary = db.Column(db.Text)
+    # summary = db.Column(db.Text)
     create_time = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     update_time = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     num_of_view = db.Column(db.Integer, default=0)
