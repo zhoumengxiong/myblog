@@ -89,3 +89,8 @@ def articleDetails(id):
                            form=form, endpoint='.articleDetails', id=article.id)
     # page=page, this is used to return the current page args to the
     # disable comment or enable comment endpoint to pass it to the articleDetails endpoint
+
+
+@main.route('/resume')
+def get_resume():
+    return render_template('resume.html')
